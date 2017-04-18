@@ -1,15 +1,15 @@
 package com.app.classes.bean;
 
-import com.app.interfaces.NormalFighter;
+import com.app.classes.abstracts.Fighter;
+
+import java.util.Random;
 
 /**
  * Created by pivithuru on 4/3/17 3:00 PM.
  */
-public class Princess implements NormalFighter {
+public class Princess extends Fighter {
 
-    private String name;
-    private int age;
-    private String country;
+    private String[] strategies = {"arrows", "sword"};
 
     @Override
     public void eat() {
@@ -22,38 +22,19 @@ public class Princess implements NormalFighter {
     }
 
     @Override
-    public void arrowFight() {
-        System.out.println("Princess " + name + " fight with dragon using arrows");
-    }
-
-    @Override
-    public void swordFight() {
-        System.out.println("Princess " + name + " fight with dragon using sword");
+    public void fight(String beast) {
+        Random random = new Random();
+        int strategyId = random.nextInt(strategies.length);
+        System.out.println("Princess " + name + " fight with " + beast + " using " + strategies[strategyId]);
     }
 
     public void dance() {
         System.out.println("Princess " + name + " dance to the music");
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        if (age > 0)
-            this.age = age;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
 }

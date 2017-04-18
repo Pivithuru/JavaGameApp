@@ -7,9 +7,9 @@ import com.app.classes.bean.Princess;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static com.app.classes.enums.Variable.*;
 import static com.app.classes.helper.GameRunnerHelper.fightWithDragon;
 import static com.app.classes.helper.GameRunnerHelper.setCharacterDetails;
+import static com.app.enums.CharacterEnum.*;
 
 /**
  * Created by pivithuru on 4/3/17 3:13 PM.
@@ -75,30 +75,24 @@ public class GameRunner {
                         } else if (actionChooser == 2) {
                             fireSoldier.talk();
                         } else if (actionChooser == 3) {
-                            System.out.print("\nSelect a strategy to fight\n 1. Arrow fight\n 2. Sword fight\n 3. Fire fight\n Enter your choice: ");
-                            int strategyChooser;
-
+                            fightWithDragon(fireSoldier);
+                            System.out.print("Do you want to play another round?\n 1.Yes\n 2. No\nEnter your choice: ");
+                            int playAgain;
                             try {
-                                strategyChooser = reader.nextInt();
+                                playAgain = reader.nextInt();
                             } catch (InputMismatchException ex) {
                                 System.out.println("Invalid input: Please enter a number");
                                 break;
                             }
 
-                            if (strategyChooser == 1) {
-                                fightWithDragon(fireSoldier, ARROWFIGHT);
+                            if (playAgain == 1)
+                                play = true;
+                            else if (playAgain == 2)
                                 play = false;
-                            } else if (strategyChooser == 2) {
-                                fightWithDragon(fireSoldier, SWORDFIGHT);
-                                play = false;
-                            } else if (strategyChooser == 3) {
-                                fightWithDragon(fireSoldier, FIREFIGHT);
-                                play = false;
-                            } else {
-                                System.out.println("Invalid strategy selection");
+                            else {
+                                System.out.println("Invalid choice");
                                 break;
                             }
-
                         } else {
                             System.out.println("Invalid action selection");
                             break;
@@ -125,30 +119,24 @@ public class GameRunner {
                         } else if (actionChooser == 2) {
                             prince.talk();
                         } else if (actionChooser == 3) {
-                            System.out.print("\nSelect a strategy to fight\n 1. Arrow fight\n 2. Sword fight\n 3. Fire fight\n Enter your choice: ");
-                            int strategyChooser;
-
+                            fightWithDragon(prince);
+                            System.out.print("Do you want to play another round?\n 1.Yes\n 2. No\nEnter your choice: ");
+                            int playAgain;
                             try {
-                                strategyChooser = reader.nextInt();
+                                playAgain = reader.nextInt();
                             } catch (InputMismatchException ex) {
                                 System.out.println("Invalid input: Please enter a number");
                                 break;
                             }
 
-                            if (strategyChooser == 1) {
-                                fightWithDragon(prince, ARROWFIGHT);
+                            if (playAgain == 1)
+                                play = true;
+                            else if (playAgain == 2)
                                 play = false;
-                            } else if (strategyChooser == 2) {
-                                fightWithDragon(prince, SWORDFIGHT);
-                                play = false;
-                            } else if (strategyChooser == 3) {
-                                fightWithDragon(prince, FIREFIGHT);
-                                play = false;
-                            } else {
-                                System.out.println("Invalid strategy selection");
+                            else {
+                                System.out.println("Invalid choice");
                                 break;
                             }
-
                         } else {
                             System.out.println("Invalid action selection");
                             break;
@@ -175,27 +163,24 @@ public class GameRunner {
                         } else if (actionChooser == 2) {
                             princess.talk();
                         } else if (actionChooser == 3) {
-                            System.out.print("\nSelect a strategy to fight\n 1. Arrow fight\n 2. Sword fight\n Enter your choice: ");
-                            int strategyChooser;
-
+                            fightWithDragon(princess);
+                            System.out.print("Do you want to play another round?\n 1.Yes\n 2. No\nEnter your choice: ");
+                            int playAgain;
                             try {
-                                strategyChooser = reader.nextInt();
+                                playAgain = reader.nextInt();
                             } catch (InputMismatchException ex) {
                                 System.out.println("Invalid input: Please enter a number");
                                 break;
                             }
 
-                            if (strategyChooser == 1) {
-                                fightWithDragon(princess, ARROWFIGHT);
+                            if (playAgain == 1)
+                                play = true;
+                            else if (playAgain == 2)
                                 play = false;
-                            } else if (strategyChooser == 2) {
-                                fightWithDragon(princess, SWORDFIGHT);
-                                play = false;
-                            } else {
-                                System.out.println("Invalid strategy selection");
+                            else {
+                                System.out.println("Invalid choice");
                                 break;
                             }
-
                         } else if (actionChooser == 4) {
                             princess.dance();
                         } else {

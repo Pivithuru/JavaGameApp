@@ -1,16 +1,15 @@
 package com.app.classes.bean;
 
-import com.app.interfaces.NormalFighter;
-import com.app.interfaces.SpecialFighter;
+import com.app.classes.abstracts.Fighter;
+
+import java.util.Random;
 
 /**
  * Created by pivithuru on 4/3/17 2:52 PM.
  */
-public class Prince implements NormalFighter, SpecialFighter {
+public class Prince extends Fighter {
 
-    private String name;
-    private int age;
-    private String country;
+    private String[] strategies = {"fire", "arrows", "sword"};
 
     @Override
     public void eat() {
@@ -23,39 +22,15 @@ public class Prince implements NormalFighter, SpecialFighter {
     }
 
     @Override
-    public void arrowFight() {
-        System.out.println("Prince " + name + " fight with dragon using arrows");
+    public void fight(String beast) {
+        Random random = new Random();
+        int strategyId = random.nextInt(strategies.length);
+        System.out.println("Prince " + name + " fight with " + beast + " using " + strategies[strategyId]);
     }
 
     @Override
-    public void swordFight() {
-        System.out.println("Prince " + name + " fight with dragon using sword");
-    }
-
-    @Override
-    public void fireFight() {
-        System.out.println("Prince " + name + " fight with dragon using fire");
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        if (age > 0)
-            this.age = age;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
+    public String toString() {
+        return super.toString();
     }
 
 }
